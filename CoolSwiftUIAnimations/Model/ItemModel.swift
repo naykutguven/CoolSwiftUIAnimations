@@ -127,4 +127,7 @@ extension ItemModel {
             imageName: "sunsetTide"
         )
     ]
+
+    /// Sample data of all asets used in previews or tests.
+    static let allSamples: [ItemModel] = dogSamples + sceneSamples
 }
