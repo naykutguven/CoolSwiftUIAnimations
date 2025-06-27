@@ -1,5 +1,5 @@
 //
-//  StackedScrollView.swift
+//  StackedVerticalScrollView.swift
 //  CoolSwiftUIAnimations
 //
 //  Created by Aykut Güven on 26.06.25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StackedScrollView<
+struct StackedVerticalScrollView<
     Content: View,
     Data: RandomAccessCollection
 >: View where Data.Element: Identifiable {
@@ -25,23 +25,29 @@ struct StackedScrollView<
         GeometryReader { geometryProxy in
             let size = geometryProxy.size
 
-            ScrollView(.vertical) {
-                VStack(spacing: spacing) {
-                    ForEach(items) { item in
-                        content(item)
-                            .frame(height: itemHeight)
-                            .visualEffect { content, proxy in
-                                content
-                                    .scaleEffect(scale(proxy), anchor: .bottom)
-                                    .offset(y: offset(proxy))
-                            }
-                            .zIndex(zIndex(item))
+            // GeometryReader lays out its content in a top-leading ZStack.
+            // Wrapping the content in a ZStack allows us to align the content
+            // to the center.
+            ZStack(alignment: .center) {
+                ScrollView(.vertical) {
+                    VStack(spacing: spacing) {
+                        ForEach(items) { item in
+                            content(item)
+                                .frame(height: itemHeight)
+                                .visualEffect { content, proxy in
+                                    content
+                                        .scaleEffect(scale(proxy), anchor: .bottom)
+                                        .offset(y: offset(proxy))
+                                }
+                                .zIndex(zIndex(item))
+                        }
                     }
+                    .scrollTargetLayout()
                 }
-                .scrollTargetLayout()
+                .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
+                .safeAreaPadding(.top, size.height - itemHeight)
             }
-            .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
-            .safeAreaPadding(.top, size.height - itemHeight)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
@@ -77,7 +83,7 @@ struct StackedScrollView<
             .resizable()
             .ignoresSafeArea()
         VStack {
-            StackedScrollView(
+            StackedVerticalScrollView(
                 items: ItemModel.sceneSamples,
                 stackedDisplayCount: 2,
                 itemHeight: 50
