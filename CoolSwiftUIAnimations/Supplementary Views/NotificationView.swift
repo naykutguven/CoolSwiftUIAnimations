@@ -31,7 +31,6 @@ struct NotificationView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(10)
-        .frame(maxHeight: .infinity)
         .background(.ultraThinMaterial)
         .clipShape(.rect(cornerRadius: 16))
     }
