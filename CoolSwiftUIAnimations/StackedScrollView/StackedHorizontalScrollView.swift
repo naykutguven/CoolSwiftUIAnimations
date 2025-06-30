@@ -88,9 +88,10 @@ struct StackedHorizontalScrollView<
         StackedHorizontalScrollView(
             items: ItemModel.dogSamples,
             stackedDisplayCount: 2,
-            itemWidth: 200
+            itemWidth: 300
         ) { item in
             CardView(imageName: item.imageName)
+                .frame(width: 300)
         }
         .safeAreaPadding(.trailing, 50)
         .frame(height: 320)

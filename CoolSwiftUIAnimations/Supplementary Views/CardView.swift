@@ -9,19 +9,23 @@ import SwiftUI
 
 struct CardView: View {
     var imageName: String
+    private let corner = 32.0
+
     var body: some View {
-        ZStack {
-            Image(imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 200, height: 300)
-                .clipShape(.rect(cornerRadius: 32))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 32)
-                        .strokeBorder(.white, lineWidth: 4)
-                }
-                .shadow(radius: 12)
-        }
+        RoundedRectangle(cornerRadius: corner)
+            .fill(.clear)
+            .aspectRatio(2.0 / 3.0, contentMode: .fit)
+            .background {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFill()
+            }
+            .clipShape(.rect(cornerRadius: corner))
+            .shadow(radius: 16)
+            .overlay {
+                RoundedRectangle(cornerRadius: corner)
+                    .strokeBorder(.white, lineWidth: 4)
+            }
     }
 }
 
@@ -29,7 +33,8 @@ struct CardView: View {
     ZStack {
         Rectangle().fill(.red.gradient)
             .ignoresSafeArea()
+
         CardView(imageName: "berlinPupper")
-            .frame(width: 200, height: 300)
+            .frame(width: 300)
     }
 }
