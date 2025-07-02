@@ -13,7 +13,7 @@ struct CardView: View {
 
     var body: some View {
         RoundedRectangle(cornerRadius: corner)
-            .fill(.clear)
+            .strokeBorder(.white, lineWidth: 4)
             .aspectRatio(2.0 / 3.0, contentMode: .fit)
             .background {
                 Image(imageName)
@@ -21,11 +21,6 @@ struct CardView: View {
                     .scaledToFill()
             }
             .clipShape(.rect(cornerRadius: corner))
-            .shadow(radius: 16)
-            .overlay {
-                RoundedRectangle(cornerRadius: corner)
-                    .strokeBorder(.white, lineWidth: 4)
-            }
     }
 }
 
@@ -36,5 +31,6 @@ struct CardView: View {
 
         CardView(imageName: "berlinPupper")
             .frame(width: 300)
+            .shadow(radius: 10)
     }
 }
