@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct CardView: View {
+    enum LayoutOrientation {
+        case horizontal, vertical
+    }
+
     var imageName: String
+    var orientation: LayoutOrientation = .vertical
+
     private let corner = 32.0
 
     var body: some View {
         RoundedRectangle(cornerRadius: corner)
             .strokeBorder(.white, lineWidth: 4)
-            .aspectRatio(2.0 / 3.0, contentMode: .fit)
+            .aspectRatio(orientation == .vertical ? 2.0 / 3.0 : 3.0 / 2.0, contentMode: .fit)
             .background {
                 Image(imageName)
                     .resizable()
@@ -29,8 +35,13 @@ struct CardView: View {
         Rectangle().fill(.red.gradient)
             .ignoresSafeArea()
 
-        CardView(imageName: "berlinPupper")
-            .frame(width: 300)
-            .shadow(radius: 10)
+        VStack {
+            CardView(imageName: "berlinPupper", orientation: .horizontal)
+                .frame(width: 300)
+                .shadow(radius: 10)
+            CardView(imageName: "berlinPupper")
+                .frame(width: 300)
+                .shadow(radius: 10)
+        }
     }
 }

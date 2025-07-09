@@ -1,5 +1,5 @@
 //
-//  CustomCarousel.swift
+//  InfiniteCarousel.swift
 //  CoolSwiftUIAnimations
 //
 //  Created by Aykut Güven on 05.07.25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomCarousel<Content: View>: View {
+struct InfiniteCarousel<Content: View>: View {
     @ViewBuilder var content: Content
 
     // This needs to be an optional Int so we can pass it to the scrollPosition modifier.
@@ -80,23 +80,23 @@ struct CustomCarousel<Content: View>: View {
     }
 }
 
-private struct CustomCarouselContentView: View {
+private struct InfiniteCarouselContentView: View {
     let items = ItemModel.sceneSamples
     var body: some View {
         NavigationStack {
             VStack {
-                CustomCarousel {
+                InfiniteCarousel {
                     ForEach(items) { item in
                         CardView(imageName: item.imageName)
                             .padding(.horizontal, 15)
                     }
                 }
             }
-            .navigationTitle("Custom Carousel")
+            .navigationTitle("Infinite Carousel")
         }
     }
 }
 
 #Preview {
-    CustomCarouselContentView()
+    InfiniteCarouselContentView()
 }
