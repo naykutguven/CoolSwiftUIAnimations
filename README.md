@@ -18,8 +18,8 @@
 
 ## 🌟 Features
 
-- 🎨 **25+ Ready-to-Use Components** - Copy, paste, and customize
-- 📱 **iOS 17+ Optimized** - Leveraging the latest SwiftUI APIs
+- 🎨 **27 Ready-to-Use Components** - Copy, paste, and customize
+- 📱 **iOS 18+ Optimized** - Leveraging the latest SwiftUI APIs
 - 🔧 **Modular Architecture** - Each animation is self-contained
 - 📖 **Well-Documented Code** - Easy to understand and modify
 - 🎭 **Preview Support** - See animations instantly in Xcode previews
@@ -49,7 +49,7 @@
 | **Ripple Transition** | Elegant ripple effect for view transitions |
 | **Particle Effects** | Like/Star/Share button particle burst |
 | **Heart App Animation** | Pulsing heart with particle effects |
-| **Staggered View** | Cascading entrance animations |
+| **StaggeredView** | Cascading entrance animations |
 | **iMessage Morph Menu Effect** | Apple iMessage-style morphing menu |
 
 ### 🎛️ UI Components
@@ -79,9 +79,9 @@
 
 ## 📋 Requirements
 
-- **iOS 17.0+**
+- **iOS 18.0+**
 - **Xcode 16.0+**
-- **Swift 5.9+**
+- **Swift 6.0+**
 
 ---
 
