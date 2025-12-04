@@ -18,7 +18,7 @@
 
 ## 🌟 Features
 
-- 🎨 **30+ Ready-to-Use Components** - Copy, paste, and customize
+- 🎨 **25+ Ready-to-Use Components** - Copy, paste, and customize
 - 📱 **iOS 17+ Optimized** - Leveraging the latest SwiftUI APIs
 - 🔧 **Modular Architecture** - Each animation is self-contained
 - 📖 **Well-Documented Code** - Easy to understand and modify
