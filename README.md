@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/SwiftUI-blue.svg?style=for-the-badge&logo=swift&logoColor=white" alt="SwiftUI">
-  <img src="https://img.shields.io/badge/iOS%2017+-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS 17+">
+  <img src="https://img.shields.io/badge/iOS%2018+-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS 18+">
   <img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=for-the-badge" alt="License">
 </p>
 
